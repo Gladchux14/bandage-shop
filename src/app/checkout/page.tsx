@@ -73,7 +73,7 @@ const CheckoutPage = () => {
               placeholder="Full Name"
               value={formData.name}
               onChange={handleInputChange}
-              className="border border-[#DCDCDC] rounded p-4 text-[#121517]"
+              className="border border-[#DCDCDC] rounded p-3 text-[#121517]"
               required
             />
             <input
