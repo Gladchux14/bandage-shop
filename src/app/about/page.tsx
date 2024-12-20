@@ -7,7 +7,7 @@ const About: React.FC = () => {
       <div className="bg-green-100 p-8 rounded-lg shadow-md text-center mb-12">
         <h1 className="text-4xl font-bold text-green-500 mb-4">Welcome to Bandage</h1>
         <p className="text-lg text-[#737373]">
-          Your trusted destination for premium-quality products that meet your everyday needs. We’re dedicated to making your shopping experience seamless, enjoyable, and rewarding.
+          Your trusted destination for premium-quality products that meet your everyday needs. We are dedicated to making your shopping experience seamless, enjoyable, and rewarding.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ const About: React.FC = () => {
           </div>
           <div className="text-center">
             <p className="text-lg text-[#737373] italic">
-              "Shopping here is so easy and secure. I’m a customer for life!"
+              "Shopping here is so easy and secure. I am a customer for life!"
             </p>
             <span className="block mt-4 text-green-500 font-semibold">- Sarah Lee</span>
           </div>
