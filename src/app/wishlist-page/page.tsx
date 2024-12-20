@@ -1,6 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useWishlist } from "@/contexts/WishlistContext"; // Adjust path if necessary
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext"; // You'll need to create/import your auth context
 
 const WishlistPage: React.FC = () => {
   const { wishlist, dispatch } = useWishlist(); // Access wishlist and dispatch
@@ -19,7 +22,7 @@ const WishlistPage: React.FC = () => {
           {wishlist.map((product) => (
             <div key={product.id} className="border p-4">
               <img
-                src={product.imageSrc[0]} // Assuming it's an array, adjust if necessary
+                src={Array.isArray(product.imageSrc) ? product.imageSrc[0] : product.imageSrc}
                 alt={product.title}
                 className="w-full h-40 object-cover"
               />
@@ -27,7 +30,7 @@ const WishlistPage: React.FC = () => {
               <p>{product.newPrice}</p>
               <button
                 className="text-red-500 mt-2"
-                onClick={() => handleRemove(product.id)} // Use dispatch instead of removeFromWishlist
+                onClick={() => handleRemove(product.id)} 
               >
                 Remove from wishlist
               </button>

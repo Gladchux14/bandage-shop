@@ -115,7 +115,6 @@ const ShopProduct: React.FC = () => {
 
   return (
     <div className="bg-[#FAFAFA] flex flex-col p-6 md:px-24 md:py-12 w-full h-auto">
-      {/* Notification component */}
       {notification && (
         <Notification
           message={notification}
@@ -204,9 +203,7 @@ const ShopProduct: React.FC = () => {
           </div>
 
           <div className="font-montserrat text-[14px] font-normal leading-[20px] text-left text-[#858585]">
-            Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
-            RELIT official consequent door ENIM RELIT Mollie. Excitation venial
-            consequent sent nostrum met.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem non unde doloribus. Labore doloribus quam, commodi officia fugit illum, molestiae hic rerum iure enim culpa fugiat aspernatur nam repellat molestias..
           </div>
 
           <div className="border-t border-[#BDBDBD] my-4"></div>

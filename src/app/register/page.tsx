@@ -1,21 +1,36 @@
 "use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
+import { auth } from "../../firebase/firebase"; 
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    setSuccess(null);
+
     if (password !== confirmPassword) {
-      alert("Passwords don't match");
+      setError("Passwords don't match");
       return;
     }
-    // Handle registration logic here
-    console.log("Email:", email);
-    console.log("Password:", password);
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      setSuccess("Account created successfully!");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+    } catch (err: any) {
+      setError(err.message || "Failed to create an account");
+    }
   };
 
   return (
@@ -23,6 +38,8 @@ const Register: React.FC = () => {
       <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
         <h1 className="text-2xl font-semibold text-center mb-6">Register</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
+          {error && <p className="text-red-500 text-center">{error}</p>}
+          {success && <p className="text-green-500 text-center">{success}</p>}
           <div>
             <label
               htmlFor="email"
@@ -52,7 +69,7 @@ const Register: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="mt-1 block w-full px-3 py-2 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
           <div>
@@ -68,7 +85,7 @@ const Register: React.FC = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="mt-1 block w-full px-3 py-2 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
           <button

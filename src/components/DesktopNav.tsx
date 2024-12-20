@@ -96,7 +96,7 @@ const DesktopNav: React.FC = () => {
           </div>
           <div className="text-center">
             <Link
-              href="/blog"
+              href="https://medium.com/@nellg.gc"
               className="font-montserrat text-[14px] font-bold leading-[24px] text-[#737373] hover:text-green-500"
             >
               Blog
@@ -110,14 +110,14 @@ const DesktopNav: React.FC = () => {
               Contact
             </Link>
           </div>
-          <div className="text-center">
+          {/* <div className="text-center">
             <Link
               href="/pages"
               className="font-montserrat text-[14px] font-bold leading-[24px] text-[#737373] hover:text-green-500"
             >
               Pages
             </Link>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex gap-[15px] items-center">

@@ -49,6 +49,10 @@ const ShoppingCart = () => {
     clearCart();
   };
 
+  const handleCheckout = () => {
+    clearCart(); // Clear the cart when proceeding to checkout
+  };
+
   const getSubtotalPrice = () => {
     return cartItems.reduce(
       (total, item) =>
@@ -400,7 +404,7 @@ const ShoppingCart = () => {
 
           <div className="w-full flex justify-center">
             <Link href="/checkout">
-            <button className="bg-[#23A6F0] w-full text-white font-montserrat font-bold py-4 px-6 rounded-lg">
+            <button onClick={handleCheckout} className="bg-[#23A6F0] w-full text-white font-montserrat font-bold py-4 px-6 rounded-lg">
               Proceed to Checkout
             </button>
             </Link>

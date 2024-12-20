@@ -1,16 +1,29 @@
 "use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
+import { auth } from "../../firebase/firebase"; // Import Firebase auth instance
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Email:", email);
-    console.log("Password:", password);
+    setError(null);
+
+    try {
+      // Firebase login
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("Login successful");
+      router.push("/home-page"); 
+    } catch (err: any) {
+      setError(err.message || "Failed to login. Please try again.");
+    }
   };
 
   return (
@@ -18,6 +31,7 @@ const Login: React.FC = () => {
       <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
         <h1 className="text-2xl font-semibold text-center mb-6">Login</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
+          {error && <p className="text-red-500 text-center">{error}</p>}
           <div>
             <label
               htmlFor="email"
@@ -31,7 +45,7 @@ const Login: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="mt-1 block w-full px-3 py-2 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
           <div>
@@ -47,7 +61,7 @@ const Login: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="mt-1 block w-full px-3 py-2 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
           <button

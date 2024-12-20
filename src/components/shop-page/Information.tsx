@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Information: React.FC = () => {
   return (
-    <div className="hidden md:flex flex-col gap-[30px] bg-white mx-auto p-6 md:px-24 md:py-12 w-full h-auto">
+    <div className=" md:flex flex-col gap-[30px] bg-white mx-auto p-6 md:px-24 md:py-12 w-full h-auto">
       <div className="flex flex-row justify-center items-center gap-[20px]  border-b border-[#ECECEC] py-5">
         <div className="text-center">
           <p className="font-montserrat text-[14px] font-semibold leading-[24px] text-[#737373]">
@@ -26,23 +26,19 @@ const Information: React.FC = () => {
         <div className="flex flex-col gap-[30px] w-full md:w-1/2">
           <div>
             <h2 className="font-montserrat text-[24px] font-bold leading-[32px] text-left text-[#252B42]">
-              The quick fox jumps over
+              The Bandage shop will wow You!
             </h2>
           </div>
           <div>
             <p className="font-montserrat text-[14px] font-normal leading-[20px] text-left text-[#737373]">
-              Met minim Mollie non desert Alamo est sit cliquey dolor do met
-              sent. RELIT official consequent door ENIM RELIT Mollie. Excitation
-              venial consequent sent nostrum met.
+              well trusted household items meant to liven your homes and provide the homely aesthetics you look forward to.
             </p>
           </div>
           <div className="flex flex-row gap-[24px]">
             <div className="border-l-[3px] border-[#23856D]"></div>
             <div>
               <p className="font-montserrat text-[14px] font-normal leading-[20px] text-left text-[#737373]">
-                Met minim Mollie non desert Alamo est sit cliquey dolor do met
-                sent. RELIT official consequent door ENIM RELIT Mollie.
-                Excitation venial consequent sent nostrum met.
+               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam earum error voluptates necessitatibus iste maxime, accusamus unde, veritatis amet rem voluptatem vero architecto molestiae! Minima quasi saepe debitis in obcaecati.
               </p>
             </div>
           </div>

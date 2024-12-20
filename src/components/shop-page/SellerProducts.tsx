@@ -14,7 +14,7 @@ interface Product {
 const SellerProducts: React.FC = () => {
   const secondHalfProducts = ProductsData.slice(10, 18);
   return (
-    <div className="w-full hidden md:flex flex-col gap-6 md:gap-10 p-6 md:px-28 md:py-12 bg-[#FAFAFA]">
+    <div className="w-full  md:flex flex-col gap-6 md:gap-10 p-6 md:px-28 md:py-12 bg-[#FAFAFA]">
       <div className="flex flex-col gap-3 text-start border-b-2 border-[#ECECEC] py-4">
         <h2 className="font-montserrat text-2xl font-bold leading-8 text-gray-900">
           BESTSELLER PRODUCTS
