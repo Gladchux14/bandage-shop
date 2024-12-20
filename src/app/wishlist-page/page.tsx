@@ -1,12 +1,24 @@
 "use client";
 import Link from "next/link";
-import { useWishlist } from "@/contexts/WishlistContext"; // Adjust path if necessary
+import { useWishlist } from "@/contexts/WishlistContext"; 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/contexts/AuthContext"; // You'll need to create/import your auth context
+import { auth } from "../../firebase/firebase"; 
+import { onAuthStateChanged } from "firebase/auth";
 
 const WishlistPage: React.FC = () => {
-  const { wishlist, dispatch } = useWishlist(); // Access wishlist and dispatch
+  const { wishlist, dispatch } = useWishlist(); 
+  const router = useRouter();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        router.push('/login'); // Redirect to login if user is not authenticated
+      }
+    });
+
+    return () => unsubscribe(); 
+  }, [router]);
 
   const handleRemove = (productId: number) => {
     dispatch({ type: "REMOVE_FROM_WISHLIST", payload: productId });
@@ -22,7 +34,7 @@ const WishlistPage: React.FC = () => {
           {wishlist.map((product) => (
             <div key={product.id} className="border p-4">
               <img
-                src={Array.isArray(product.imageSrc) ? product.imageSrc[0] : product.imageSrc}
+                src={product.imageSrc[0]} 
                 alt={product.title}
                 className="w-full h-40 object-cover"
               />

@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   const pathname = usePathname();
@@ -103,10 +104,15 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-[#FAFAFA] py-5 flex justify-center md:justify-start px-6 md:px-24">
+      <div className="bg-[#FAFAFA] py-5 flex items-center justify-center gap-20  px-6 md:px-24">
         <p className="font-montserrat text-sm font-bold leading-6 text-[#737373] text-center md:text-start">
           Made With Love By Finland All Rights Reserved
         </p>
+
+        <Link
+          href="/logout" className=" text-sm font-bold leading-6 text-[#737373]" >
+        LOGOUT
+        </Link>
       </div>
     </div>
   );
