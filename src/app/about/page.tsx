@@ -47,19 +47,19 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="text-center">
             <p className="text-lg text-[#737373] italic">
-              "Bandage has completely transformed my shopping experience! The quality of products and customer service is unmatched."
+              Bandage has completely transformed my shopping experience! The quality of products and customer service is unmatched.
             </p>
             <span className="block mt-4 text-green-500 font-semibold">- Jane Doe</span>
           </div>
           <div className="text-center">
             <p className="text-lg text-[#737373] italic">
-              "Fast delivery and amazing products. I always recommend Bandage to my friends and family."
+              Fast delivery and amazing products. I always recommend Bandage to my friends and family.
             </p>
             <span className="block mt-4 text-green-500 font-semibold">- John Smith</span>
           </div>
           <div className="text-center">
             <p className="text-lg text-[#737373] italic">
-              "Shopping here is so easy and secure. I am a customer for life!"
+              Shopping here is so easy and secure. I am a customer for life!
             </p>
             <span className="block mt-4 text-green-500 font-semibold">- Sarah Lee</span>
           </div>
